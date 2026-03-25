@@ -12,9 +12,15 @@ Expected published files:
 
 Recommended publication flow:
 
-1. Verify source fragments.
-2. Compile `catalog.runtime.json`.
-3. Publish/sign into this repo root.
+1. Ingest or update source/model fragments in the main `StemSep` repo.
+2. Run the one-shot release entrypoint:
+   `python scripts/registry/release_catalog.py --private-key <pem> --catalog-repo-root C:\Users\engdahlz\StemSep-catalog --run-acceptance`
+3. Review `reports/report_catalog_v3_sources.json` and `reports/provider_acceptance.json`.
 4. Commit and push this repo separately from the main StemSep app repo.
+
+Acceptance policy:
+
+- Hugging Face, GitHub Releases, GitHub Raw and deterministic Google Drive entries must install through the selection-first Rust control plane.
+- Proton Drive entries remain `reference` or `manual` until a live deterministic `download_url` exists.
 
 The app's remote-first catalog support is designed to read the signed runtime catalog from a dedicated GitHub Raw URL.
