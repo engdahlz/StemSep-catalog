@@ -1,4 +1,1 @@
-catalog.runtime.remote.json
-catalog.runtime.remote.json.sig
-catalog.public.ed25519.txt
-reports/
+# Published catalog artifacts are meant to be committed in this repo.
